@@ -7,8 +7,27 @@ class MyComponent extends React.Component {
     age: '25'
   }
 
+  handleClick = (myName) => {
+    alert(myName);
+  }
+
+  handleChange = (e) => {
+    // hàm setState() sẽ tự động gọi hàm render()
+    this.setState({
+      name: e.target.value,
+    })
+  }
+
   render() {
-    return <div>{this.state.name}</div>;
+    let myName = 'kimthoa';
+
+    return <>
+      <div>{this.state.name}</div>
+      <input value={this.state.name} onChange={(e)=> this.handleChange(e)}/>
+      <div>
+        <button onClick={() => this.handleClick(myName)}>Click Me!</button>
+      </div>
+    </>
   }
 }
 
