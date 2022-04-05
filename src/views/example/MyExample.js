@@ -30,6 +30,14 @@ export default class MyExample extends Component {
       arrJobs: [...this.state.arrJobs.filter((item)=> item.id !== id)]
     })
   }
+  
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log('prevState', prevState, 'currentState', this.state);
+  }
+
+  componentDidMount = () => {
+    console.log('componentDidMount')
+  }
 
   render() {
     return (
